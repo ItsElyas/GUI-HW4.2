@@ -175,32 +175,30 @@ function createNewTab() {
     tabCounter++;
 }
 
-//Changed this to html instead of DOM since I kept having so many issues with it for some reason
+
 function generateTable(minC, maxC, minR, maxR) {
     let html = "<table class='multi-table'>";
     
-    const startC = parseInt(minC);
-    const endC = parseInt(maxC);
-    const startR = parseInt(minR);
-    const endR = parseInt(maxR);
+    const minColumn = parseInt(minC);
+    const maxColumn = parseInt(maxC);
+    const minRow = parseInt(minR);
+    const maxRow = parseInt(maxR);
     
-    html += "<thead><tr><th>X</th>";
-    for (let c = startC; c <= endC; c++) {
-        html += `<th>${c}</th>`;
+    for (let i = minColumn; i <= maxColumn; i++) {
+        html += `<th>${i}</th>`;
     }
     html += "</tr></thead>";
     
     html += "<tbody>";
     
-    for (let r = startR; r <= endR; r++) {
+    for (let r = minRow; r <= maxRow; r++) {
         html += `<tr><th>${r}</th>`; 
-        for (let c = startC; c <= endC; c++) {
-            html += `<td>${r * c}</td>`; 
+        for (let j = minColumn; j <= maxColumn; j++) {
+            html += `<td>${r * j}</td>`; 
         }
         html += "</tr>";
     }
     
     html += "</tbody></table>";
     return html;
-
 }
