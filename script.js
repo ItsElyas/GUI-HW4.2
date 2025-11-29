@@ -175,7 +175,7 @@ function createNewTab() {
     tabCounter++;
 }
 
-
+//Changed this to html instead of DOM since I kept having so many issues with it for some reason
 function generateTable(minC, maxC, minR, maxR) {
     let html = "<table class='multi-table'>";
     
@@ -202,4 +202,5 @@ function generateTable(minC, maxC, minR, maxR) {
     
     html += "</tbody></table>";
     return html;
+
 }
